@@ -1,0 +1,40 @@
+{
+  "kind": "collectionType",
+  "collectionName": "reports",
+  "info": {
+    "singularName": "report",
+    "pluralName": "reports",
+    "displayName": "ReportArticle",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "attributes": {
+    "article": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::article.article"
+    },
+    "Report": {
+      "type": "enumeration",
+      "enum": [
+        "Enfreint les règles de Hetic",
+        "Contenu illégal dans l’UE",
+        "Harcèlement",
+        "Haine",
+        "Menaces de violence",
+        "Abus ou sexualisation de mineur",
+        "Partage d'informations personnelles",
+        "Médias intimes non consensuels",
+        "Transaction interdite",
+        "Usurpation d'identité",
+        "Violation du droit d’auteur",
+        "Violation de marque déposée",
+        "Automutilation ou suicide",
+        "Spam",
+        "Violation du programme de contributeurs"
+      ]
+    }
+  }
+}
