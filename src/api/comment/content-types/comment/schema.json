@@ -18,19 +18,9 @@
     "date": {
       "type": "date"
     },
-    "article": {
-      "type": "relation",
-      "relation": "oneToOne",
-      "target": "api::article.article"
-    },
     "contentID": {
       "type": "uid",
       "targetField": "Content"
-    },
-    "author": {
-      "type": "relation",
-      "relation": "oneToOne",
-      "target": "api::author.author"
     }
   }
 }

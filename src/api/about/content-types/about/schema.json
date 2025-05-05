@@ -28,11 +28,6 @@
     },
     "IdComment": {
       "type": "uid"
-    },
-    "article": {
-      "type": "relation",
-      "relation": "oneToOne",
-      "target": "api::article.article"
     }
   }
 }

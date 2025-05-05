@@ -11,11 +11,6 @@
     "draftAndPublish": true
   },
   "attributes": {
-    "article": {
-      "type": "relation",
-      "relation": "oneToOne",
-      "target": "api::article.article"
-    },
     "Report": {
       "type": "enumeration",
       "enum": [
