@@ -20,7 +20,7 @@ export default factories.createCoreController('api::article.article', ({ strapi 
           ...data,
           user: user.id, // Associe automatiquement l'utilisateur connecté
         },
-        populate: { user: true }, // Optionnel : inclure les infos user dans la réponse
+        populate: { user: true }, // Optionnel : inclure les infos user dans la réponse Pour le token
       });
 
       return ctx.send(response);
