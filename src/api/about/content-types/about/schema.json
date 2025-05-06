@@ -17,15 +17,6 @@
       "maxLength": 200,
       "default": "commentaire"
     },
-    "blocks": {
-      "type": "dynamiczone",
-      "components": [
-        "shared.media",
-        "shared.quote",
-        "shared.rich-text",
-        "shared.slider"
-      ]
-    },
     "IdComment": {
       "type": "uid"
     }
