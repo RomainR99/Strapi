@@ -53,9 +53,16 @@
         "categorie",
         "categorieb",
         "categoriec",
-        "Mobile"
+        "Mobile",
+        "Action"
       ],
       "default": "categorie"
+    },
+    "comments": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::comment.comment",
+      "mappedBy": "article"
     }
   }
 }
