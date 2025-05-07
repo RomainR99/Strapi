@@ -63,6 +63,9 @@
       "relation": "oneToMany",
       "target": "api::comment.comment",
       "mappedBy": "article"
+    },
+    "articleID": {
+      "type": "uid"
     }
   }
 }

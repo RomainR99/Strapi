@@ -19,10 +19,6 @@
     "date": {
       "type": "date"
     },
-    "contentID": {
-      "type": "uid",
-      "targetField": "Content"
-    },
     "user": {
       "type": "relation",
       "relation": "manyToOne",
@@ -37,6 +33,9 @@
       "relation": "manyToOne",
       "target": "api::article.article",
       "inversedBy": "comments"
+    },
+    "commentID": {
+      "type": "uid"
     }
   }
 }
