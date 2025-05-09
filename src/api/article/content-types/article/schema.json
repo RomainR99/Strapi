@@ -54,7 +54,10 @@
         "categorieb",
         "categoriec",
         "Mobile",
-        "Action"
+        "Action",
+        "Memes",
+        "Animaux",
+        "Humour"
       ],
       "default": "categorie"
     },

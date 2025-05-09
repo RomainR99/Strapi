@@ -457,7 +457,16 @@ export interface ApiArticleArticle extends Struct.CollectionTypeSchema {
     articleID: Schema.Attribute.UID;
     articles: Schema.Attribute.Relation<'oneToMany', 'api::comment.comment'>;
     Categorie: Schema.Attribute.Enumeration<
-      ['categorie', 'categorieb', 'categoriec', 'Mobile', 'Action']
+      [
+        'categorie',
+        'categorieb',
+        'categoriec',
+        'Mobile',
+        'Action',
+        'Memes',
+        'Animaux',
+        'Humour',
+      ]
     > &
       Schema.Attribute.DefaultTo<'categorie'>;
     createdAt: Schema.Attribute.DateTime;
