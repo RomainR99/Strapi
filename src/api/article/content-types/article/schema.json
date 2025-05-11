@@ -64,10 +64,11 @@
     "articleID": {
       "type": "uid"
     },
-    "articles": {
+    "comments": {
       "type": "relation",
       "relation": "oneToMany",
-      "target": "api::comment.comment"
+      "target": "api::comment.comment",
+      "mappedBy": "article"
     }
   }
 }

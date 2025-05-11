@@ -455,7 +455,6 @@ export interface ApiArticleArticle extends Struct.CollectionTypeSchema {
   };
   attributes: {
     articleID: Schema.Attribute.UID;
-    articles: Schema.Attribute.Relation<'oneToMany', 'api::comment.comment'>;
     Categorie: Schema.Attribute.Enumeration<
       [
         'categorie',
@@ -469,6 +468,7 @@ export interface ApiArticleArticle extends Struct.CollectionTypeSchema {
       ]
     > &
       Schema.Attribute.DefaultTo<'categorie'>;
+    comments: Schema.Attribute.Relation<'oneToMany', 'api::comment.comment'>;
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
@@ -521,6 +521,7 @@ export interface ApiCommentComment extends Struct.CollectionTypeSchema {
     draftAndPublish: true;
   };
   attributes: {
+    article: Schema.Attribute.Relation<'manyToOne', 'api::article.article'>;
     commentID: Schema.Attribute.UID;
     Content: Schema.Attribute.String &
       Schema.Attribute.SetMinMaxLength<{
