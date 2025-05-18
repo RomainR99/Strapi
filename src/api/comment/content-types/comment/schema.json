@@ -36,6 +36,12 @@
       "relation": "manyToOne",
       "target": "api::article.article",
       "inversedBy": "comments"
+    },
+    "hashtags": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::hashtag.hashtag",
+      "inversedBy": "comments"
     }
   }
 }

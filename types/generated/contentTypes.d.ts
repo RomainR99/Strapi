@@ -500,6 +500,7 @@ export interface ApiArticleArticle extends Struct.CollectionTypeSchema {
         maxLength: 200;
       }> &
       Schema.Attribute.DefaultTo<'Description'>;
+    hashtags: Schema.Attribute.Relation<'manyToMany', 'api::hashtag.hashtag'>;
     Image: Schema.Attribute.Media<'images' | 'files', true>;
     likes: Schema.Attribute.Relation<'oneToMany', 'api::like.like'>;
     locale: Schema.Attribute.String & Schema.Attribute.Private;
@@ -554,6 +555,7 @@ export interface ApiCommentComment extends Struct.CollectionTypeSchema {
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
     date: Schema.Attribute.Date;
+    hashtags: Schema.Attribute.Relation<'manyToMany', 'api::hashtag.hashtag'>;
     locale: Schema.Attribute.String & Schema.Attribute.Private;
     localizations: Schema.Attribute.Relation<
       'oneToMany',
@@ -603,6 +605,41 @@ export interface ApiGlobalGlobal extends Struct.SingleTypeSchema {
     publishedAt: Schema.Attribute.DateTime;
     siteDescription: Schema.Attribute.Text & Schema.Attribute.Required;
     siteName: Schema.Attribute.String & Schema.Attribute.Required;
+    strapi_assignee: Schema.Attribute.Relation<'oneToOne', 'admin::user'>;
+    strapi_stage: Schema.Attribute.Relation<
+      'oneToOne',
+      'plugin::review-workflows.workflow-stage'
+    >;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
+export interface ApiHashtagHashtag extends Struct.CollectionTypeSchema {
+  collectionName: 'hashtags';
+  info: {
+    displayName: 'Hashtag';
+    pluralName: 'hashtags';
+    singularName: 'hashtag';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    articles: Schema.Attribute.Relation<'manyToMany', 'api::article.article'>;
+    comments: Schema.Attribute.Relation<'manyToMany', 'api::comment.comment'>;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    Hashtag: Schema.Attribute.String;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::hashtag.hashtag'
+    > &
+      Schema.Attribute.Private;
+    publishedAt: Schema.Attribute.DateTime;
     strapi_assignee: Schema.Attribute.Relation<'oneToOne', 'admin::user'>;
     strapi_stage: Schema.Attribute.Relation<
       'oneToOne',
@@ -1224,6 +1261,7 @@ declare module '@strapi/strapi' {
       'api::article.article': ApiArticleArticle;
       'api::comment.comment': ApiCommentComment;
       'api::global.global': ApiGlobalGlobal;
+      'api::hashtag.hashtag': ApiHashtagHashtag;
       'api::like.like': ApiLikeLike;
       'api::report.report': ApiReportReport;
       'plugin::content-releases.release': PluginContentReleasesRelease;

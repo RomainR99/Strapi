@@ -91,6 +91,12 @@
       "relation": "oneToMany",
       "target": "api::comment.comment",
       "mappedBy": "article"
+    },
+    "hashtags": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::hashtag.hashtag",
+      "mappedBy": "articles"
     }
   }
 }

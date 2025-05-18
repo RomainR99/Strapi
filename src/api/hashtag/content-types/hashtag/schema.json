@@ -1,0 +1,29 @@
+{
+  "kind": "collectionType",
+  "collectionName": "hashtags",
+  "info": {
+    "singularName": "hashtag",
+    "pluralName": "hashtags",
+    "displayName": "Hashtag"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "attributes": {
+    "Hashtag": {
+      "type": "string"
+    },
+    "articles": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::article.article",
+      "inversedBy": "hashtags"
+    },
+    "comments": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::comment.comment",
+      "mappedBy": "hashtags"
+    }
+  }
+}
